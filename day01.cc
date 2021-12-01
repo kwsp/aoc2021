@@ -12,6 +12,8 @@ template <class T> vector<T> readFileItems(string fname) {
 }
 
 template <class T> int countInc(vector<T> vec) {
+  if (vec.size() < 2)
+    return 0;
   int prev = vec[0];
   int acc = 0;
   for (int i = 1; i < vec.size(); i++) {
@@ -23,15 +25,11 @@ template <class T> int countInc(vector<T> vec) {
 
 int part1() {
   const auto inp = readFileItems<int>("day01.txt");
-  if (inp.size() < 2)
-    return 0;
   return countInc(inp);
 }
 
 int part2() {
   const auto inp = readFileItems<int>("day01.txt");
-  if (inp.size() < 2)
-    return 0;
   vector<int> wind(inp.size() - 2);
   for (int i = 0; i < inp.size() - 2; i++)
     wind[i] = inp[i] + inp[i + 1] + inp[i + 2];
