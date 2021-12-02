@@ -2,8 +2,7 @@ import Foundation
 
 func getIntArray(_ fname: String) -> [Int] {
     do {
-        let raw = try String(contentsOfFile: fname)
-        let lines = raw.split(separator: "\n")
+        let lines = try String(contentsOfFile: fname).split(separator: "\n")
         return lines.map({ Int($0) ?? -1 })
     } catch {
         print(error.localizedDescription)
