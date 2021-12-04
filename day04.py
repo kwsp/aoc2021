@@ -35,7 +35,6 @@ def part2():
     q, boards = get_input()
     seen = set()
     for x in q:
-        last_called = x
         seen.add(x)
         winners = check_winners(boards, seen)
         w_boards = [b for i, b in enumerate(boards) if i in winners]
@@ -46,7 +45,7 @@ def part2():
                 for v in line:
                     if not v in seen:
                         acc += v
-            print("Part 2:", acc * last_called)
+            print("Part 2:", acc * x)
             return
 
 
@@ -54,7 +53,6 @@ def part1():
     q, boards = get_input()
     seen = set()
     for x in q:
-        last_called = x
         seen.add(x)
         winner = check_winners(boards, seen)
         if winner:
@@ -63,7 +61,7 @@ def part1():
                 for v in line:
                     if not v in seen:
                         acc += v
-            print("Part 1:", acc * last_called)
+            print("Part 1:", acc * x)
             return
 
 
